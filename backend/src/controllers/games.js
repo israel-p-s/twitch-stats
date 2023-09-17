@@ -22,7 +22,18 @@ const getGameBasicInfo = async (req, res) => {
         return res.json(response.data);
 
     } catch (error) {
-        console.error("getGameBasicInfo: ", error);
+        if (error.response && error.response.status === 400) {
+            return res.json({
+                data: [
+                    {
+                        id: '0',
+                        name: error.config.params.login,
+                        box_art_url: 'https://static-cdn.jtvnw.net/ttv-static/404_boxart.jpg',
+                        igdb_id: ''
+                    }
+                ]
+            });
+        }
         res.status(500).send("getGameBasicInfo: ", error);
     }
 }

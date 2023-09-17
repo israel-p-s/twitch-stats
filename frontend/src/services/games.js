@@ -13,7 +13,6 @@ const getGameBasicInfo = async (game) => {
         return data;
 
     } catch (error) {
-        console.error('Error:', error);
         return [];
     }
 }

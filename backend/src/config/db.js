@@ -9,7 +9,7 @@ const connectDB = async () => {
         console.log("* CONECTADO A MONGO DB");
 
     } catch (err) {
-        console.error("* ERROR EN LA CONEXIÓN A MONGO DB: ", err.message);
+        console.log("* ERROR EN LA CONEXIÓN A MONGO DB: ", err.message);
         process.exit(1);
     }
 };

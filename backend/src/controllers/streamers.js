@@ -31,7 +31,6 @@ const searchStreamer = async (req, res) => {
         }
 
     } catch (error) {
-        console.error("searchStreamer: ", error);
         res.status(500).send("searchStreamer: ", error);
     }
 };
@@ -53,11 +52,23 @@ const getStreamerBasicInfo = async (req, res) => {
                 'Client-Id': process.env.CLIENT_ID
             }
         });
+
         return res.json(response.data);
 
     } catch (error) {
-        console.error("getGameBasicInfo: ", error);
-        res.status(500).send("getGameBasicInfo: ", error);
+        if (error.response && error.response.status === 400) {
+            return res.json({
+                data: [
+                    {
+                        id: '0',
+                        name: error.config.params.login,
+                        profile_image_url: 'https://static-cdn.jtvnw.net/ttv-static/404_boxart.jpg',
+                        igdb_id: ''
+                    }
+                ]
+            });
+        }
+        res.status(500).send("getStreamerBasicInfo: ", error);
     }
 }
 
@@ -77,7 +88,6 @@ const getViewersGraph = async (req, res) => {
         res.json(data);
 
     } catch (error) {
-        console.error("getViewersGraph: ", error);
         res.status(500).send("getViewersGraph: ", error);
     }
 };
@@ -130,7 +140,6 @@ const getGamesGraph = async (req, res) => {
         }
         res.json(result);
     } catch (error) {
-        console.error("getGamesGraph: ", error);
         res.status(500).send("getGamesGraph: ", error);
     }
 };
@@ -187,7 +196,6 @@ const getTagsGraph = async (req, res) => {
         res.json(result);
 
     } catch (error) {
-        console.error("getTagsGraph: ", error);
         res.status(500).send("getTagsGraph: ", error);
     }
 };

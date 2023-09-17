@@ -49,7 +49,6 @@ const getTotalViewersGraph = async (req, res) => {
         res.json(result);
 
     } catch (error) {
-        console.error("getTotalViewersGraph: ", error);
         res.status(500).send("getTotalViewersGraph: ", error);
     }
 };
@@ -103,7 +102,6 @@ const getTotalTagsGraph = async (req, res) => {
         res.json(result);
 
     } catch (error) {
-        console.error("getTotalTagsGraph: ", error);
         res.status(500).send("getTotalTagsGraph: ", error);
     }
 };
@@ -156,7 +154,6 @@ const getTotalLanguagesGraph = async (req, res) => {
         res.json(result);
 
     } catch (error) {
-        console.error("getTotalLanguagesGraph: ", error);
         res.status(500).send("getTotalLanguagesGraph: ", error);
     }
 };
@@ -193,7 +190,6 @@ const getTopStreamersGraph = async (req, res) => {
         res.json(result);
 
     } catch (error) {
-        console.error("getTopStreamersGraph: ", error);
         res.status(500).send("getTopStreamersGraph: ", error);
     }
 };
@@ -231,7 +227,6 @@ const getTopGamesGraph = async (req, res) => {
         res.json(result);
 
     } catch (error) {
-        console.error("getTopGamesGraph: ", error);
         res.status(500).send("getTopGamesGraph: ", error);
     }
 }

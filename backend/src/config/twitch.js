@@ -12,7 +12,7 @@ async function getTwitchToken() {
         return response.data.access_token;
 
     } catch (error) {
-        console.error("* ERROR OBTENIENDO EL TOKEN DE TWITCH: ", error.message);
+        console.log("* ERROR OBTENIENDO EL TOKEN DE TWITCH: ", error.message);
         return null;
     }
 }
