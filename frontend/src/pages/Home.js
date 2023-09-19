@@ -53,7 +53,7 @@ function Home() {
                 <div className="row">
                     <div className='viewer-graph'>
                         <div className="day-range-selector">
-                            <label>Mostrar datos de los últimos test: </label>
+                            <label>mostrar datos de los últimos test: </label>
                             <select value={dayRange} onChange={e => changeDayRange(e)}>
                                 <option value={1}>1 día</option>
                                 <option value={7}>7 días</option>
