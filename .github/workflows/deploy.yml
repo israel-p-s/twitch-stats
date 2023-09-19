@@ -53,4 +53,4 @@ jobs:
         envsubst < task-definition.json > final-task-definition.json
         aws ecs register-task-definition --cli-input-json file://final-task-definition.json
         TASK_REVISION=$(aws ecs describe-task-definition --task-definition twitch-stats-task --query "taskDefinition.revision" --output text)
-        aws ecs update-service --cluster twitch-stats --service twitch-stats-service-2Ahora --task-definition twitch-stats-task:$TASK_REVISION
+        aws ecs update-service --cluster twitch-stats --service twitch-stats-service-2 --task-definition twitch-stats-task:$TASK_REVISION
