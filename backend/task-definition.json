@@ -9,19 +9,19 @@
         "environment": [
           {
             "name": "CLIENT_SECRET",
-            "value": "${{ secrets.CLIENT_SECRET }}"
+            "value": "arn:aws:ssm:eu-west-1:913324685112:parameter/CLIENT_SECRET"
           },
           {
             "name": "PORT",
-            "value": "${{ secrets.PORT }}"
+            "value": "arn:aws:ssm:eu-west-1:913324685112:parameter/PORT"
           },
           {
             "name": "CLIENT_ID",
-            "value": "${{ secrets.CLIENT_ID }}"
+            "value": "arn:aws:ssm:eu-west-1:913324685112:parameter/CLIENT_ID"
           },
           {
             "name": "MONGO_URI",
-            "value": "${{ secrets.MONGO_URI }}"
+            "value": "arn:aws:ssm:eu-west-1:913324685112:parameter/MONGO_URI"
           }
         ],
         "portMappings": [
