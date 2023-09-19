@@ -1,9 +1,13 @@
+# general
+.vscode
+
 # backend
 backend/.env
-baclend/node_modules
+backend/node_modules
 
 # frontend
 frontend/build
+frontend/node_modules
 
 # scripts
 *.pyc
