@@ -9,19 +9,19 @@
         "environment": [
           {
             "name": "CLIENT_SECRET",
-            "value": arn:aws:ssm:eu-west-1:913324685112:parameter/CLIENT_SECRET
+            "value": "1bhwo6eubq9yf35g2bx2i8r3fy2i04"
           },
           {
             "name": "PORT",
-            "value": arn:aws:ssm:eu-west-1:913324685112:parameter/PORT
+            "value": "8080"
           },
           {
             "name": "CLIENT_ID",
-            "value": arn:aws:ssm:eu-west-1:913324685112:parameter/CLIENT_ID
+            "value": "pyjdt0tbczzduhwpf5x2mjbebsawo6"
           },
           {
             "name": "MONGO_URI",
-            "value": arn:aws:ssm:eu-west-1:913324685112:parameter/MONGO_URI
+            "value": "mongodb+srv://israelps:F4NW7TgEiTEG0W4w@cluster0.fszevls.mongodb.net/streams"
           }
         ],
         "portMappings": [
