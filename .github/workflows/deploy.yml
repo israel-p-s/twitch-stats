@@ -20,29 +20,13 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
 
-    - name: Check for frontend changes
-      id: diff-frontend
-      run: |
-        if ! git diff --quiet ${{ github.event.before }} HEAD -- frontend/; then
-          echo "::set-output name=has_changes::true"
-        fi
-
-    - name: Check for backend changes
-      id: diff-backend
-      run: |
-        if ! git diff --quiet ${{ github.event.before }} HEAD -- backend/; then
-          echo "::set-output name=has_changes::true"
-        fi
-
     - name: Deploy frontend
-      if: steps.diff-frontend.outputs.has_changes == 'true'
       run: |
         cd frontend && npm install --legacy-peer-deps && npm run build 
         aws s3 sync ./build s3://twitchstats.site/ --delete
         aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"
 
     - name: Deploy backend
-      if: steps.diff-backend.outputs.has_changes == 'true'
       run: |
         cd backend && npm install
         aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 913324685112.dkr.ecr.eu-west-1.amazonaws.com
