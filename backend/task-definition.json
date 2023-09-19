@@ -1,108 +1,58 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-west-1:913324685112:task-definition/twitch-stats-task:latest",
-    "containerDefinitions": [
-        {
-            "name": "twitch-stats",
-            "image": "913324685112.dkr.ecr.eu-west-1.amazonaws.com/twitch-stats:latest",
-            "cpu": 0,
-            "portMappings": [
-                {
-                    "name": "twitch-stats-80-tcp",
-                    "containerPort": 80,
-                    "hostPort": 80,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                },
-                {
-                    "name": "twitch-stats-8080-tcp",
-                    "containerPort": 8080,
-                    "hostPort": 8080,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                }
-            ],
-            "essential": true,
-            "environment": [
-                {
-                    "name": "CLIENT_SECRET",
-                    "value": "${{ secrets.CLIENT_SECRET }}"
-                },
-                {
-                    "name": "PORT",
-                    "value": "${{ secrets.PORT }}"
-                },
-                {
-                    "name": "CLIENT_ID",
-                    "value": "${{ secrets.CLIENT_ID }}"
-                },
-                {
-                    "name": "MONGO_URI",
-                    "value": "${{ secrets.MONGO_URI }}"
-                }
-            ],
-            "environmentFiles": [],
-            "mountPoints": [],
-            "volumesFrom": [],
-            "ulimits": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/twitch-stats-task",
-                    "awslogs-region": "eu-west-1",
-                    "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
-            }
-        }
-    ],
     "family": "twitch-stats-task",
+    "containerDefinitions": [
+      {
+        "name": "twitch-stats",
+        "image": "913324685112.dkr.ecr.eu-west-1.amazonaws.com/twitch-stats:latest",
+        "cpu": 0,
+        "essential": true,
+        "environment": [
+          {
+            "name": "CLIENT_SECRET",
+            "value": "${{ secrets.CLIENT_SECRET }}"
+          },
+          {
+            "name": "PORT",
+            "value": "${{ secrets.PORT }}"
+          },
+          {
+            "name": "CLIENT_ID",
+            "value": "${{ secrets.CLIENT_ID }}"
+          },
+          {
+            "name": "MONGO_URI",
+            "value": "${{ secrets.MONGO_URI }}"
+          }
+        ],
+        "portMappings": [
+          {
+            "containerPort": 80,
+            "hostPort": 80,
+            "protocol": "tcp"
+          },
+          {
+            "containerPort": 8080,
+            "hostPort": 8080,
+            "protocol": "tcp"
+          }
+        ],
+        "logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+            "awslogs-create-group": "true",
+            "awslogs-group": "/ecs/twitch-stats-task",
+            "awslogs-region": "eu-west-1",
+            "awslogs-stream-prefix": "ecs"
+          }
+        }
+      }
+    ],
     "executionRoleArn": "arn:aws:iam::913324685112:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
-    "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-        }
-    ],
-    "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
     "requiresCompatibilities": [
-        "FARGATE"
+      "FARGATE"
     ],
     "cpu": "512",
-    "memory": "1024",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
-    "registeredAt": "2023-09-04T22:15:39.415Z",
-    "registeredBy": "arn:aws:iam::913324685112:root",
-    "tags": []
-}
+    "memory": "1024"
+  }
+  
