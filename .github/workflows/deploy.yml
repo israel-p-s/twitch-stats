@@ -37,7 +37,7 @@ jobs:
     - name: Deploy frontend
       if: steps.diff-frontend.outputs.has_changes == 'true'
       run: |
-        cd frontend && npm install && npm run build 
+        cd frontend && npm install --legacy-peer-deps && npm run build 
         aws s3 sync ./build s3://twitchstats.site/ --delete
         aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"
 
