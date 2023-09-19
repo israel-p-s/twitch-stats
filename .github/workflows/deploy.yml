@@ -50,7 +50,7 @@ jobs:
         docker tag twitch-stats:latest 913324685112.dkr.ecr.eu-west-1.amazonaws.com/twitch-stats:latest
         docker push 913324685112.dkr.ecr.eu-west-1.amazonaws.com/twitch-stats:latest
         sudo apt-get install -y gettext
-        envsubst < backend/task-definition.json > backend/final-task-definition.json
-        aws ecs register-task-definition --cli-input-json file://backend/final-task-definition.json
+        envsubst < task-definition.json > final-task-definition.json
+        aws ecs register-task-definition --cli-input-json file://final-task-definition.json
         TASK_REVISION=$(aws ecs describe-task-definition --task-definition twitch-stats-task --query "taskDefinition.revision" --output text)
-        aws ecs update-service --cluster twitch-stats --service twitch-stats-service-2 --task-definition twitch-stats-task:$TASK_REVISIONY 
+        aws ecs update-service --cluster twitch-stats --service twitch-stats-service-2Ahora --task-definition twitch-stats-task:$TASK_REVISION
