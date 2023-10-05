@@ -1,5 +1,6 @@
 # general
 .vscode
+assets
 
 # backend
 backend/.env

@@ -97,7 +97,7 @@ const getGamesGraph = async (req, res) => {
     const { streamer } = req.params;
 
     try {
-        const today = new Date(); // today
+        const today = new Date();
         const range = new Date();
         range.setDate(today.getDate() - dayRange);
         const streams = await Stream.find({

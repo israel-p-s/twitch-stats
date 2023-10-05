@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
-import { registerables } from 'chart.js'; // Aquí es donde obtienes los 'registerables'
+import { registerables } from 'chart.js'; 
 import 'chartjs-adapter-date-fns';
 
 import { Chart as ChartJS } from 'chart.js';

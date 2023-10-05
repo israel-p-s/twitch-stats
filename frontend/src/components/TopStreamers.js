@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import '../styles/TopStreamers.scss';
-import { getStreamerBasicInfo } from '../services/streamers';  // Importa el servicio
+import { getStreamerBasicInfo } from '../services/streamers'; 
 
 function TopStreamers({ data }) {
     const [streamersWithImages, setStreamersWithImages] = useState([]);
@@ -53,4 +53,3 @@ function TopStreamers({ data }) {
 }
 
 export default TopStreamers;
-

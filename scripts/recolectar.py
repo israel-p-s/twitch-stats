@@ -37,7 +37,7 @@ def get_streams(pagination_cursor=None):
         'Client-Id': CLIENT_ID
     }
     
-    params = {'first': 100}  # número máximo de objetos por solicitud
+    params = {'first': 100} 
     if pagination_cursor:
         params['after'] = pagination_cursor
 
@@ -72,10 +72,9 @@ def save_streams_to_db():
             return
 
         if not streams or streams[-1]['viewer_count'] < 1000:
-            print("Viewer count dropped below 1000. Stopping the process.")
+            print("Streamers detectados con menos de 1000 viewers.")
             break
 
-        # Agrega un campo de timestamp a cada stream
         for stream in streams:
             stream['timestamp'] = datetime.utcnow()
 
@@ -85,11 +84,11 @@ def save_streams_to_db():
             print("No se pudo conectar a MongoDB.")
             return
 
-        db = mongo_client["streams"]  # reemplace con el nombre de su base de datos
-        collection = db["streams"]  # reemplace con el nombre de su colección
+        db = mongo_client["streams"] 
+        collection = db["streams"]
         try:
             result = collection.insert_many(streams)
-            print(f"Streams saved with IDs: {result.inserted_ids}")
+            print(f"Streams guardados con IDs: {result.inserted_ids}")
         except Exception as e:
             print("Error guardando en MongoDB:", e)
 
