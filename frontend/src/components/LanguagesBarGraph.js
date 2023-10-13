@@ -207,8 +207,8 @@ function LanguagesBarGraph({ data }) {
         datasets: [{
             label: 'Horas',
             data: sortedData.map(d => d.hours),
-            backgroundColor: 'rgba(75,192,192,0.4)',
-            borderColor: 'rgba(75,192,192,1)',
+            backgroundColor: 'rgba(101,23,189,0.4)',
+            borderColor: 'rgba(101,23,189,1)',
             borderWidth: 1
         }]
     };

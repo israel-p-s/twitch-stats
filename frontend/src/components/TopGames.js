@@ -40,7 +40,7 @@ function TopGames({ data }) {
 
     return (
         <>
-            <h1>Top Juegos</h1>
+            <h1>Top Juegos - Espectadores en el minuto de oro</h1>
             <div className="topGames">
                 {isLoading ? (
                     <p className="loader">Cargando...</p>
@@ -54,7 +54,7 @@ function TopGames({ data }) {
                                 <a href={game.twitchURL} target="_blank" rel="noopener noreferrer">{game.game}</a>
                             </div>
                             <div className="gameValue">
-                                {game.viewer_count}
+                                {new Intl.NumberFormat('es-ES', { style: 'decimal' }).format(game.viewer_count)}
                             </div>
                         </div>
                     ))

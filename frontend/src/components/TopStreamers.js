@@ -26,7 +26,7 @@ function TopStreamers({ data }) {
 
     return (
         <>
-            <h1>Top Streamers</h1>
+            <h1>Top Streamers - Espectadores en el minuto de oro</h1>
             <div className="topStreamers">
                 {isLoading ? (
                     <p className="loader">Cargando...</p>
@@ -43,7 +43,7 @@ function TopStreamers({ data }) {
                                 </Link>
                             </div>
                             <div className="streamerValue">
-                                {streamer.viewer_count}
+                                {new Intl.NumberFormat('es-ES', { style: 'decimal' }).format(streamer.viewer_count)}
                             </div>
                         </div>
                     )))}

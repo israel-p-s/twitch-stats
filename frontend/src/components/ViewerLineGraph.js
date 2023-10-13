@@ -35,7 +35,7 @@ function ViewerLineGraph({ data }) {
             {
                 label: 'Viewers',
                 data: modifiedData.map(d => d.viewer_count),
-                borderColor: 'rgba(75,192,192,1)',
+                borderColor: 'rgba(101,23,189,1)',
                 fill: false,
             }
         ],
