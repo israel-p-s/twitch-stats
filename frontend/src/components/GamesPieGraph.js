@@ -46,7 +46,7 @@ function GamesPieChart({ data }) {
                 <p className="loader">Cargando...</p>
             ) : (
                 <>
-                    <h1>Juegos más jugados</h1>
+                    <h1>Juegos más jugados - Horas</h1>
                     <Pie data={chartData} />
                 </>
             )}
