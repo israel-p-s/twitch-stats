@@ -232,7 +232,7 @@ function LanguagesBarGraph({ data }) {
                 <p className="loader">Cargando...</p>
             ) : (
                 <>
-                    <h1>Lenguajes más usados</h1>
+                    <h1>Lenguajes más usados - Horas</h1>
                     <Bar data={chartData} options={options} />
                 </>
             )}

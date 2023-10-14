@@ -25,7 +25,7 @@ function TagsWordCloudGraph({ data }) {
                 <p className="loader">Cargando...</p>
             ) : (
                 <div>
-                    <h1>Tags más usados</h1>
+                    <h1>Tags más usados - Horas</h1>
                     <div className="wordcloud-tooltip"></div>
                     <ReactWordcloud words={words} options={options} />
                 </div>
